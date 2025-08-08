@@ -3,11 +3,11 @@ name: Flutter CI/CD with Firebase App Distribution
 on:
   push:
     branches:
-      - main  # change if needed
+      - main # change if needed
 
 jobs:
   distribute:
-    runs-on: macos-latest  # needed for iOS builds
+    runs-on: macos-latest # needed for iOS builds
 
     steps:
       # 1. Checkout code
@@ -18,14 +18,14 @@ jobs:
       - name: Setup Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.0'
+          flutter-version: "3.5.3"
 
       # 3. Restore Firebase config files from secrets
       - name: Decode google-services.json
         run: echo "${{ secrets.GOOGLE_SERVICES_JSON }}" | base64 --decode > android/app/google-services.json
 
-    #   - name: Decode GoogleService-Info.plist
-    #     run: echo "${{ secrets.GOOGLE_SERVICE_INFO_PLIST }}" | base64 --decode > ios/Runner/GoogleService-Info.plist
+      #   - name: Decode GoogleService-Info.plist
+      #     run: echo "${{ secrets.GOOGLE_SERVICE_INFO_PLIST }}" | base64 --decode > ios/Runner/GoogleService-Info.plist
 
       # 4. Install dependencies
       - name: Install dependencies
@@ -36,8 +36,8 @@ jobs:
         run: flutter build apk --release
 
       # 6. Build iOS IPA (requires signing setup in real project)
-    #   - name: Build iOS release IPA
-    #     run: flutter build ios --release --no-codesign
+      #   - name: Build iOS release IPA
+      #     run: flutter build ios --release --no-codesign
 
       # 7. Install Firebase CLI
       - name: Install Firebase CLI
