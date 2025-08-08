@@ -1,4 +1,5 @@
 {
     "files.autoSave": "afterDelay",
-    "java.dependency.refreshDelay": 500
+    "java.dependency.refreshDelay": 500,
+    "java.configuration.updateBuildConfiguration": "interactive"
 }
