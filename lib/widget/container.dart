@@ -40,7 +40,7 @@ class MyWidget extends StatelessWidget {
           padding: EdgeInsets.all(20),
           alignment: Alignment.center,
           child: Text(
-            "My App Home Pages v2 by Abdul Rahman UK",
+            "My App Home Pages v2 by Abdul Rahman UK CICD DevOps",
             style: TextStyle(fontSize: 25),
           ),
         ),
